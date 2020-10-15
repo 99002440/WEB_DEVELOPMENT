@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function checkForNumber(value){
+            if(isNaN(value)){
+                alert("not a valid number")
+                return false;
+            }
+            else 
+            return true;
+        }
+       function calcProgram(){
+           var value1 =prompt("enter the first value")
+           if(!checkForNumber(value1)){
+               return
+           }
+           value1=parseFloat(value1)
+
+           var value2=prompt("enter the second value")
+           if(!checkForNumber(value2)){
+               return;
+           }
+           value2=parseFloat(value2)
+
+       var operand =prompt("Enter the operand")
+        switch(operand){
+            case "+":
+                alert("The added value is"+(value1+value2))
+                break;
+            case "-":
+                alert("The subtracted value is"+(value1-value2))
+                break;
+            case "x":
+                alert("The multiplied value is"+(value1 * value2))
+                break;
+            case '/':
+                alert("The quotient value is "+ (value1/value2))
+                break;
+           default:
+                alert("Invalid opertaion entered") 
+        }
+
+        }
+
+        calcProgram()
+
+    </script>
+</body>
+</html>

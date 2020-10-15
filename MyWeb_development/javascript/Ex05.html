@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arrays in JS</title>
+    <script src="./scripts/Common.js"></script>
+    <script>
+        //JS does not need UR statements to end with ; It is simply a practise by developers of C/C++ background to end a statement. However, if U wish to write multiple statements in the same line, they are supposed to be seperated by ;
+    /*    let elements = ["Mango", "Apple", "Orange", "PineApple"]
+        //length is a property of the Array to get the size of the array...
+        for (let i = 0; i < elements.length; i++) {
+            console.log(elements[i]);
+        }
+        //Unlike other programming languages, Arrays in JS are dynamic, U could add elements to the array without altering the current status
+        elements.push("Banana");//adds a new element to the bottom of the array...
+        elements.push("JackFruit");
+        elements.push("KiwiFruit");
+        elements.unshift("Apricot Fruit");//adds the new element to the start of the array..
+        console.log("After adding items!!!!!!")
+        for (let i = 0; i < elements.length; i++) {
+            console.log(elements[i]);
+        }
+        //To remove the elements: pop():Removes the last element and shift(): Removes the first Element. In both the cases, the romoved items are returned.
+        console.log("The no of elements: " + elements.length)*/
+        //Length actually gives the Highest index of the array + 1...
+        /////////////////////////////////////////////////////////////
+        /*var objects = [1,2,3,5,6];
+        objects.length = 2;//length is writable, here it truncates the remaining values to 2...
+        for(let i = 0; i < objects.length; i++)
+            console.log(objects[i]);*/
+        /////////////////////////////////////////////////////////
+        let stringValues = [];//U a blank array whose size is 0....
+		function addNewItem(){
+			//take input from the user...
+			let value = $("txtString").value;
+			//add item to the array
+			stringValues.push(value);
+			//iterate thro the array and append it into the unorderedlist..
+			fillList();
+		}
+		function fillList(){
+			let selList = $("slItems");
+			let list = $("lstString");
+			//reset the existing values;
+			list.innerHTML = ""
+			selList.innerHTML = ""
+
+			for (var i = 0; i < stringValues.length; i++) {
+				list.innerHTML += "<li>" + stringValues[i] +"</li>"
+			}
+			for (var i = 0; i < stringValues.length; i++) {
+				selList.innerHTML += "<option>" + stringValues[i] +"</option>"
+			}
+		}
+		function deleteItem(){
+			let selectedItem = $("slItems").value;
+			let index = stringValues.indexOf(selectedItem);
+			stringValues.splice(index, 1);
+			fillList();
+		}
+    </script>
+    <div>
+        <input placeholder="Add New String" id="txtString">
+        <button onclick="addNewItem()">+</button>
+    </div>
+    <div>
+        <p>
+            List of Items currently with us!!
+        </p>
+        <ul id="lstString"></ul>
+    </div>
+    <div>
+        <p>
+			Select an Item to delete:
+			<select id="slItems"></select>
+			<button onclick="deleteItem()">Delete</button>
+		</p>
+    </div>
+</body>
+</html>

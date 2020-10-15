@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classses and Objects in javascript</title>
+    <script src="./scripts/classes.js"></script>
+    <script src="./scripts/Common.js"></script>
+    <script>
+        function createObj(){
+            let id=parseInt($("empId").value)
+            let name=parseInt$("empName").value
+            let address =$("empAddress").value
+            let empObj= new employee(Id,name,address)
+
+            let text= `<h1> The Name: ${empObj.empName} </h1> <p> The EmpAddress :$
+                { empObj.empAddress}  </p>`
+                $("pDisplay").innerHTML =text
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h1>Creating Objects using HTML Inputs</h1>
+        <section>
+        <p>Enter the Employee ID: <input type="number" id="empId"> </p>
+        <p>Enter the Employee Name: <input type="text" id="empName"> </p>
+        <p>Enter the Employee Address: <input type="text" id="empAddress"> </p>
+        <p>Enter the Employee Salary: <input type="number" min="10000" max="70000" id="empSalary"></p>
+        <p><button>Register</button></p>
+        </section>
+        </div>
+        <div>
+        <h1>Details of the Employee that are set:</h1>
+        <p id="pDisplay">
+            <button onclick="emp.createObj()"></button>
+        </p>
+        </div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquiry</title>
+    <style>
+        body{
+            background-color:papayawhip;
+            color: orangered;
+        }
+        nav{
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            text-align: center;
+        }
+        a{
+            width: 120px;
+            height: 50px;
+            background-color: turquoise;
+            color:tomato;
+            padding: 30px;
+            margin: 10px;
+            font-size:20pt;
+            font-style: italic;
+        }
+        a:hover{
+            background-color:steelblue;
+        }
+        footer{
+            bottom: 0px;
+            text-align: center;
+        }
+        table{
+            margin-left: 37%;
+        }
+        h2{
+            text-align: center;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="./Home.html">Home</a>
+            <a href="./About.html">ABOUT</a>
+            <a href="./Enquiry.html">ENQUIRY</a>
+            <a href="./Facilities.html">FACILITIES</a>
+            <a href="./Rooms.html">ROOMS</a>
+            <hr/>
+        </nav>
+    </header>
+    <section>
+        <h2>Enquiry Form</h2>
+    </section>
+    <section>
+        <form >
+            <table>
+                <tr>
+                    <th>Enter the Name:</th>
+                    <td><p><input type="text"  id="visitorName"></p></td>
+                </tr>
+                <tr>
+                    <th>Enter the Phone Number:</th>
+                    <td><p><input type="tel"  id="VisitorPhone"></p></td>
+                </tr>
+                <tr>
+                    <th>Email Address</th>
+                    <td><p><input type="email" id="VisitorMail"></p></td>
+                </tr>
+                <tr>
+                    <th>Enter Date Of Check-in</th>
+                    <td><p><input type="date" id="VisitorCheckIn"></p></td>
+                </tr>
+                <tr>
+                    <th>Number Of Days Of Stay</th>
+                    <td><p><input type="number" id="VisitorStay"></p></td>
+                </tr>
+                <tr>
+                    <th>Type Of Food:</th>
+                    <td><p><input type="radio" name = "Foodl">Veg <input type="radio" name="Foodl">Non-Veg</p></td>
+                </tr>
+                <tr>
+                    <th>Life-Style:</th>
+                    <td>
+                        <p>
+                            <input type="checkbox">Spa 
+                            <input type="checkbox">Pool
+                            <input type="checkbox">Drinks
+                        </p>
+                    </td>
+                </tr>
+                <tr style="text-align: center;">
+                    <td colspan="2">
+                        <button type="button">Register</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </section>
+    <footer>
+        <hr/>
+        <h4>&copy;Copyrights Hotel Mysuru Inn Grand-2020</h4>
+    </footer>
+</body>
+</html>

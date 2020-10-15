@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery Basics</title>
+    <script src="lib/jquery.js"></script>
+    <script>
+        function init(){
+            $("div").click(function(){
+                $(this).hide(2000)
+            })
+        }
+        $(document).ready(init);
+     </script>
+</head>
+<body>
+    <div style="width: 30%; height: 300px; background-color: blue;">
+        Testing some code
+    </div>
+    <div style="width: 30%; height: 300px; background-color:green;">
+        Testing some code
+    </div>
+    <div style="width: 30%; height: 300px; background-color:yellow;">
+        Testing some code
+    </div>
+    <div style="width: 30%; height: 300px; background-color:red;">
+        Testing some code
+    </div>
+</body>
+</html>

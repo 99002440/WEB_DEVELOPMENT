@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web forms</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="./Ex01.html">Basics</a>
+            <a href="./Ex02.html">Formatting</a>
+            <a href="./Ex03.html">Tables</a>
+            <a href="./Ex04.html">images</a>
+            <a href="./Ex05.html">Lists</a>
+            <a href="./Ex06.html">Webforms</a>
+            <a href="./Ex07.html">Audio & Video files</a>
+        </nav>
+    </header>
+    <section>
+        <h2>What are web forms?</h2>
+        <p>
+            Interactive pages where inputs are taken from the user to register ,give inputs to the Application to perform CRUD operations within a web Applications .
+            The processing is done using high level programming languages like php ,JSP,ASP.NET<br/>
+
+        </p>
+      </section>  
+      <section>
+          <form>
+            <p><input type="text" placeholder="Enter the Name" id="empName"></p>
+            <p><input type="email" placeholder="Enter the Email" id="empEmail"></p>
+            <p><input type="date" placeholder="Enter the Date of Birth" id="empDOB"></p>    
+            <p><input type="tel" placeholder="Enter the Phone" id="empPhone"></p>
+           <p>Enter the complete address:
+               <textarea id="empAddress"></textarea>
+           </p>
+            <p>
+                select the qualification:<br/>
+                <select id="empQualification">
+                    <option>Graduation</option>
+                    <option>Under Graduation</option>
+                    <option>Post Graduation</option>
+                    <option>Pre University</option>
+                    <option>School</option>
+                </select>
+            </p>
+            <p>
+                Billing to: <input type="radio" name="billoc">Home <input type="radio" name="billoc">office</p>
+
+            </p>
+            <p>
+                your other requirements:
+                <input type="checkbox">swimming pool
+                <input type="checkbox">Gym
+                <input type="checkbox">Restaurant
+                <input type="checkbox">Coffeshop
+                <input type="checkbox">Handicraft shop
+            </p>
+            <p>Rate yourself in HTML:
+                <input type="range" min="1" max="10" step="1" />    
+            </p>
+            <button type="button">Register</button>
+            
+        </form>
+      </section>
+
+</body>
+</html>

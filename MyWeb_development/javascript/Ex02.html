@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html >
+<head>
+    
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var value1=prompt("Enter the first value")
+        if(IsNaN(value1))
+        {
+            alert("not a valid number")
+            value1=0
+        }
+        else
+        {
+            value1=parseFloat(value1)
+        }
+        var value2=prompt("Enter the second value")
+        if(IsNaN(value2))
+        {
+            alert("not a valid number")
+            value2=0
+        }
+        else
+        {
+            value2=parseFloat(value2)
+        }
+        var operand =prompt("Enter the operand")
+        switch(operand){
+            case "+":
+                alert("The added value is"+(value1+value2))
+                break;
+            case "-":
+                alert("The subtracted value is"+(value1-value2))
+                break;
+            case "x":
+                alert("The multiplied value is"+(value1 * value2))
+                break;
+            case '/':
+                alert("The quotient value is "+ (value1/value2))
+                break;
+        }
+
+    </script>
+</body>
+</html>

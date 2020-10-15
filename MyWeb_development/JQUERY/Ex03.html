@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            display: inline-block;
+            width: 40%;
+            height:350px;
+            border:2px solid blue;
+            margin:5px;
+
+        }
+    </style>
+    <script src="lib/jquery.js"></script>
+    <script>
+        function init(){
+            $("a:gt(0)").click(function(){
+                $(this).parent().fadeOut(3000)
+                $(this).parent().slideUp(3000)
+            })
+            $("a:first").click(function(){
+                $(this).fadeIn(3000)
+            })
+        }
+        $(document).ready(init)
+    </script>
+</head>
+<body>
+    <p><a href="#">Display All </a></p>
+    <div style="background-color: black;"><a href="#">Fade</a>/div>
+    <div style="background-color: green;"><a href="#">Fade</a>/div>
+    <div style="background-color: yellow;"><a href="#">Fade</a>/div>
+    <div style="background-color: orange;"><a href="#">Fade</a>/div>
+</body>
+</html>

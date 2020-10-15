@@ -1,0 +1,35 @@
+Nodejs is platform used to run JS code out of browser. Technically, it is open-source and cross platform JS runtime environment where we could develop apps both client and server using JavaScript. 
+It was developed by Ryan Dahl from Joyent Technologies and is currently maintained by Joyent.
+It uses the v8 JS engine that is available in the core of the Chrome browser. The Chome's JS engine is now available as a platform that can be executed on any terminal or console, there by making ur js code executable from the cmd. 
+
+It runs on a single process without creating new threads for the user requests. It rather provides async IO operations which prevents the JS code from blocking.
+Most of the operations of Nodejs will be asynchronous: UR calling functions will not wait for UR function to return, rather a call back function will be provided which will make the program extract the result after the function returns. 
+
+With Nodejs, we can now create server side programs using JS, so it becomes a complete stack of development:
+Client side: Angular(JS Framework)
+Server side: ExpressJs(Framework of Nodejs)
+Server: Nodejs
+Database: MongoDB database(JS based Database)
+MEAN stack: Mongodb, Express, Angular, Node as a stack for developing rich internet based Applications. 
+
+Limitations:
+No blocking based functions could be used in Nodejs. alert, prompt functions of JS is not allowed here. 
+Nodejs runs on cmd, it is a server side program with no user interface console to control it. 
+
+Advantages:
+U dont need a fat environment to work with. 
+U dont have any blocking function, there by making UR App look faster and interactive.
+Promotes Async programming. 
+Well suited for IoT Devices, Smart TVs, Interactive browsers and many more. 
+Nodejs is installable on multiple platforms: Linix, Windows, iOS, Andriod and many other platforms.
+
+How to run Nodejs:
+From the Cmd prompt. 
+Node commmand is used to run the node environment. While installing Nodejs, a PATH setting would be done by the installation process itself. if not, U should set the environment variable called Path to the location of Nodejs. 
+
+Node provides REPL(Read, Evaluate, Print, Loop) to perform basic operations from the terminal. It is basically a program created to take inputs from the user, evaluate the statement, print it and re-run it like a loop.
+Since Node 7.0, we have Tab facility which will provide auto completion. 
+ 
+
+
+

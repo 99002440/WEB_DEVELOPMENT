@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <script src="./scripts/mathCalc.js"></script>
+    <script src="./scripts/Common.js"></script>
+    <script>
+        function invokeOperation(){
+            var firstValue=parseFloat($("num1").value);
+
+            var secondValue=parseFloat($("num2").value);
+            
+            var operation=$("option").value;
+
+            var result= performOperation(firstValue,secondValue,operation)
+            
+            var pRes=$('result')
+            
+            pRes.innerText="The Result of operation is :"+result;
+
+        }
+
+    </script>
+    <style>
+        *{
+            font-size: 20pt;
+            background-color:aqua;
+            color: black;
+            padding: 5px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculator Program</h1>
+    <div>
+        <p>Enter the first value :<input type="number" id="num1"></p>
+        <p>Enter the first value :<input type="number" id="num2"></p>
+
+        <select id="option">
+        <option >---choose one---</option>
+            <option >Add</option>
+        <option>Subtract</option>
+        <option>Multiply</option>
+        <option>Divide</option>
+        <option>Square</option>
+        <option>Square root</option>
+        </select>
+<p>
+    <button type="button" onclick="invokeOperation()"> = </button>
+</p>
+    <p id="result"></p>
+
+    </div>
+    
+</body>
+</html>

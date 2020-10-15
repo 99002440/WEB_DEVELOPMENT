@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+ <script src="lib/jquery.js"></script>
+ <script>
+ $(document).ready(function(){
+ //invoked when the user selects the input to type...
+ $("input").focus(function(){
+ $(this).css("background-color", "gold");
+ })
+ //Invoked when the element looses the focus of the user....
+ $("input").focusout(function(){
+ $(this).css("background-color", "white");
+ })
+ 
+ $("button").click(function(){
+ let name = $("input:first").val();
+ let address = $("input:eq(1)").val();
+ let phone = $("input:eq(2)").val();
+ let amount = $("input:last").val();
+ let display = `The Name ${name} from ${address} contactable at ${phone} has paid the bill of Rs. ${amount}`;
+ $("div:eq(1)>p").text(display);
+ })
+ })
+ </script>
+<head>
+</head>
+<body>
+ <div>
+ <h2>Register the Customer</h2>
+ <p> <input type="text" placeholder="Enter the Name"> </p>
+ <p> <input type="text" placeholder="Enter the Address"> </p>
+ <p> <input type="text" placeholder="Enter the Phone"> </p>
+ <p> <input type="text" placeholder="Enter the BillAmount"> </p>
+ <button>Post Details</button>
+ </div>
+ <div>
+ <p>
+ 
+ </p>
+ </div> 
+</body>
+</html>
