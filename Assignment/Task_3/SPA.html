@@ -1,0 +1,176 @@
+<html>
+
+<head>
+
+<title>Employee Details.</title>
+
+<script src="./lib/jquery.js"></script>
+
+
+<script>
+
+    $(document).ready(function () {
+
+        let i = 1;
+
+        $("#btnAdd").click(function () {
+
+            let newHtml = GetHtml().replace("$[Id]", i++).replace("$[Name]", $("#txtname").val()).replace("$[Address]", $("#txtAddress").val()).replace("$[action]", "Edit").replace("$[Delete]", "Delete");
+
+            $("#table_td").append(newHtml);
+
+        });
+
+ 
+
+        $("#btnUpdate").click(function () {
+
+            let newHtml = GetHtml().replace("$[Id]", $("#txtId").val()).replace("$[Name]", $("#txtname").val()).replace("$[Address]", $("#txtAddress").val()).replace("$[action]", "Edit").replace("$[Delete]", "Delete");
+
+            $("#table_td").append(newHtml);
+
+            $("#btnAdd").show();
+
+            $("#btnUpdate").hide();
+
+            $("#txtId").val('');
+
+            $("#txtname").val('');
+
+            //$("#ddlRole option:selected").val('Select')
+
+            $("#txtAddress").val('');
+
+        });
+
+ 
+
+        $(document).on("click", "#A_Edit", function () {
+
+            $("#btnAdd").hide();
+
+            $("#btnUpdate").show();
+
+            $("#txtId").show();
+
+            $("#txtId").val($(this).parent().parent().find('.Id').html());
+
+            $("#txtname").val($(this).parent().parent().find('.Name').html());
+
+            //$("#ddlRole option:selected").val($(this).parent().parent().find('.role').html())
+
+            $("#txtAddress").val($(this).parent().parent().find('.Address').html());
+            $(this).parents("tr").remove();
+
+            $("#btnUpdate").focus();
+
+ 
+
+        });
+
+ 
+
+        $(document).on("click", "#A_delete", function () {
+
+            $(this).parents("tr").remove();
+
+        });
+
+    });
+
+ 
+
+    function GetHtml() {
+
+        return "<tr><td class='Id'>$[Id]</td>"
+
+        + "<td class='Name'>$[Name]</td>"
+
+        + "<td class='Address'>$[Address]</td>"
+
+        + "<td class='action'><a href='#' id='A_Edit'> $[action] </a> <a href='#' id='A_delete'>$[Delete]</a></td></tr>";
+
+    }
+
+ 
+
+</script>
+
+</head>
+
+<body>
+
+<form id="form1">
+
+    <table class='table table-bordered' id='UserInfo' border="1">
+
+        <tr>
+
+            <th>ID</th>
+
+            <th>Name</th>
+
+            <th>Address</th>
+
+            <th>Action</th>
+
+        </tr>
+
+        <tbody id="table_td"></tbody>
+
+    </table>
+
+    <h3>
+
+        Add Employee Details 
+
+    </h3>
+
+    <table class='table table-bordered' id='Add' >
+
+        <tr>
+
+            <th>Id</th>
+
+            <th>Name</th>
+    
+            <th>Address</th>
+
+        </tr>
+
+        <tr>
+
+            <td>
+
+                <input type="text" id="txtId" style="display: none" readonly name="ID" value="" />
+
+            </td>
+
+            <td>
+
+                <input type="text" id="txtname" name="name" value="" />
+
+            </td>
+            <td>
+
+                <input type="text" id="txtAddress" name="Address" value="" />
+
+            </td>
+
+        </tr>
+
+    </table>
+
+    <input type="button" id="btnAdd" style="display: block" value="Add" />
+
+    <input type="button" id="btnUpdate" style="display: none" value="Update" />
+
+    <br />
+
+    <div id="output"></div>
+
+</form>
+
+</body>
+
+</html>

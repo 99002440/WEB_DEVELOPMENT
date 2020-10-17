@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Monitoring System</title>
+    <script src="../scripts/common.js"></script>
+    <script src="../scripts/empData.js"></script>
+    <script>
+
+        let mgr = new empManager();
+        function init(){
+            $hide("div1");
+            $hide("div2");
+            $hide("div3");
+            //add some dummy records to the store...
+            mgr.addEmployee(new employee(1, "Abir", "Bangalore"));
+            mgr.addEmployee(new employee(2, "Dev", "Mysore"));
+            mgr.addEmployee(new employee(3, "Arjun", "Pune"));
+            mgr.addEmployee(new employee(4, "Shiv", "Chennai"));
+        }
+
+        //Called when the user clicks the link of adding employee
+        function onAddClick(){
+            $hide("div1");
+            $hide("div2");
+            $show("div3");
+        }
+        //Called when the user clicks Add Employee Button;
+        function onAddEmployee(){
+            let id = $("newId").value;
+            let name = $("newName").value;
+            let address = $("newAddress").value;
+            //create the employee object...
+            let emp = new employee(id, name, address)
+            mgr.addEmployee(emp);
+            $("newId").value ="";
+            $("newName").value ="";
+            $("newAddress").value ="";
+            alert("Employee added successfully");
+        }
+
+        function fillRecords(){
+            $hide("div3");
+            $hide("div2");
+            $show("div1");
+           //to fill<th>Emp ID</th><th>Emp ID</th> the table of data..
+           let heading = `<tr><th>Emp ID</th><th>Emp Name</th><th>Emp Address</th><th>Options</th>`;
+            $("tblRecords").innerHTML = heading;
+            $show("div1");
+            let data = mgr.getAll();
+            data.forEach(emp => {
+                let row = `<tr><td>${emp.empId}</td><td>${emp.empName}</td><td>${emp.empAddress}</td><td><a href="#" class="edit" sid="${emp.empId}">Edit</a><td><button onclick="delEmp()" class="remove" did="${emp.empId}">x</button></td></td>`;
+                $('tblRecords').innerHTML += row;
+                $mapEvent("edit", function(){
+                    debugger;
+                    let selectedId = this.attributes["sid"].value;
+                    let empObj = mgr.findEmployee(selectedId);
+                    $("empId").innerText = empObj.empId;
+                    $("empName").value = empObj.empName;
+                    $("empAddress").value = empObj.empAddress;
+                    $hide("div1");
+                    $hide("div3");
+                    $show("div2");
+                })
+            });
+        }
+        function delEmp(){
+            var res = confirm("Do you confirm");
+            if(res){
+                $mapEvent("remove", function(){
+                    debugger;
+                    let selectedId = this.attributes["did"].value;
+                    mgr.deleteEmployee(selectedId);
+                    //let dataDel = mgr.getAll();
+
+                })  
+            }
+            else{
+                alert("not deleted");
+            }
+
+        }
+        function updateRecord(){
+            let id = $("empId").innerText;
+            let name = $("empName").value;
+            let address = $("empAddress").value;
+            //create the employee object...
+            let emp = new employee(id, name, address)
+            try {
+                mgr.updateEmployee(emp);
+                alert("Employee updated!!!!");                
+            } catch (error) {
+                alert(error.message);
+            }            
+        }
+    </script>
+</head>
+<body onload="init()">
+    <header>
+        <nav>
+            <a href="#" onclick="fillRecords()">View All</a>
+            <a href="#" onclick="onAddClick()">New Employee</a>
+            <a href="#">About Us</a>
+        </nav>
+    </header>
+    <section>
+       <div id="div1">
+           <h2>List of Employees with Us!!!!</h2>
+           <table id="tblRecords" border="1" width="100%">
+               
+           </table>
+       </div>
+       <div id="div2">
+            <h2>Edit the Details of the Employee</h2>
+            <p>Employee ID: <span id="empId"></span> </p>
+            <p>Employee Name:   <input type="text" id="empName"></p>    
+            <p>Employee Address:   <input type="text" id="empAddress"></p>
+            <p><button onclick="updateRecord()">Update Record</button></p>    
+       </div>
+       <div id="div3">
+            <h2>Add the Details of the Employee</h2>
+            <p>Employee ID: <input type="number" id="newId"> </p>
+            <p>Employee Name: <input type="text" id="newName"></p>
+            <p>Employee Address: <input type="text" id="newAddress"></p>
+            <p><button onclick="onAddEmployee()">Add Employee</button></p>
+       </div> 
+    </section>
+</body>
+</html>
